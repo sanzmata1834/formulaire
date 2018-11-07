@@ -25,7 +25,11 @@
 <input id="ville" placeholder="Ville">
 <hr>	
 <input id="email" placeholder="email" data-validetta="required,email">
-<br>	
+<br>
+<input id="mdp" name="mdp" placeholder="Mot de passe" data-validetta="required,minLenght[3]">
+	
+<input id="mdp2" name="mdp2" placeholder="Confirmez mot de passe" data-validetta="required,equalTo[mdp]">
+	
 <button type="submit" id="submit">Envoyer</button>
 </form>
 	
