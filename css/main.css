@@ -6347,3 +6347,20 @@ a.text-dark:hover, a.text-dark:focus {
 
 .hidden {
   display: none; }
+
+.container {
+  max-width: 400px; }
+
+.btn-secondary {
+  border-radius: 30px;
+  font-size: 2rem;
+  width: 100%; }
+
+hr {
+  margin-top: 35px;
+  width: 50px;
+  border: solid black 2px; }
+
+.form-group {
+  border: solid 1px black;
+  border-radius: 30px; }

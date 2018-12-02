@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulaire Validetta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
@@ -11,30 +12,38 @@
 	<div class="container">
 		<div class="row">
 			<div id="contenu"></div>
-			<div id="inscription" class="hidden col-12 btn btn-secondary" role="button">S'inscrire</div>
-			<div id="connexion" class="col-12 btn btn-secondary" role="button">Se connecter</div>
-			<form class="form-group col-12" id="form-inscription" data-validetta="required">
-				<input class="form-control" id="nom" placeholder="Votre nom" data-validetta="required">
-				<input class="form-control" id="prenom" placeholder="Votre prénom" data-validetta="required">
-				<input class="form-control" id="datepicker" placeholder="Votre date de naissance" data-validetta="required">
-				<input class="form-control" id="cp" placeholder="Code postal" data-validetta="required">
-				<input class="form-control" id="ville" placeholder="Ville" data-validetta="required">	
-				<input class="form-control" id="email" placeholder="Votre adresse e-mail" data-validetta="required,email">
-				<input class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" data-validetta="required,minLength[3]">	
-				<input class="form-control" id="mdp2" name="mdp2" placeholder="Confirmez mot de passe" data-validetta="required,equalTo[mdp]">
+			<div class="mt-5 p-0 col-12 text-center">
+				<div id="inscription" class="hidden btn btn-secondary" role="button">Inscrivez-vous</div>
+				<div id="connexion" class="btn btn-secondary" role="button">Connectez-vous</div>
+			</div>
+			<hr>
+			<form class="form-group col-12 p-4" id="form-inscription" data-validetta="required">
+				<h1 class="text-center col-12">Inscription</h1>
+				<div><input class="form-control" id="nom" placeholder="Votre nom" data-validetta="required"></div>
+				<div><input class="form-control" id="prenom" placeholder="Votre prénom" data-validetta="required"></div>
+				<div><input class="form-control" id="datepicker" placeholder="Votre date de naissance" data-validetta="required"></div>
+				<div><input class="form-control" id="cp" placeholder="Votre code postal" data-validetta="required"></div>
+				<div><input class="form-control" id="ville" placeholder="Votre ville" data-validetta="required"></div>	
+				<div><input class="form-control" id="email" placeholder="Votre adresse e-mail" data-validetta="required,email"></div>
+				<div><input class="form-control" id="mdp" name="mdp" placeholder="Votre mot de passe" data-validetta="required,minLength[3]">	</div>
+				<div><input class="form-control" id="mdp2" name="mdp2" placeholder="Confirmez votre mot de passe" data-validetta="required,equalTo[mdp]"></div>
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="conditions" data-validetta="required">
 					<a class="form-check-label" href="conditionsgenerales.html">J'ai lu et accepte les conditions générales</a><br>
 				</div>
-				<button class="btn btn-primary" type="submit" id="submit">Envoyer</button>
+				<div class="p-3 row">
+					<button class="btn btn-primary col-6" type="submit" id="submit">Envoyer</button>
+					<button class="btn btn-warning col-6" type="reset" id="reset">Annuler</button>
+				</div>
 			</form>
 			<!--/form-inscription-->
 	
-			<form class="hidden col-12" id="form-connexion">
-				<input class="form-control" id="emailcon" placeholder="Votre adresse e-mail" data-validetta="required,email">
-				<input class="form-control" id="mdpcon" name="mdpcon" placeholder="Votre mot de passe" data-validetta="required">
+			<form class="form-group hidden p-4 col-12" id="form-connexion">
+				<h1 class="text-center">Connection</h1>
+				<div><input class="form-control" id="emailcon" placeholder="Votre adresse e-mail" data-validetta="required,email"></div>
+				<div><input class="form-control" id="mdpcon" name="mdpcon" placeholder="Votre mot de passe" data-validetta="required"></div>
 				<a class="form-check-label" href="mdpoublie.html">Mot de passe oublié?</a><br>
-				<button class="btn btn-primary" type="submit" id="connexion">Envoyer</button>
+				<button class="my-3 col-12 btn btn-primary" type="submit" id="submit-connexion">Se connecter</button>
 			</form>
 			<!--/form-connexion-->
 		</div>

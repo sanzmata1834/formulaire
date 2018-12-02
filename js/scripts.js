@@ -121,15 +121,16 @@ var donnees = $("#form-inscription").serialize();
   
   }, // error
 
-  display : 'bubble',
+  display : 'inline',
   errorClass : 'validetta-error',
   /** Same for valid validation */
   validClass : 'validetta-valid', // Same for valid validation
   /* To enable real-time form control, set this option true. */
   realTime : true,
-  bubblePosition: 'bottom',
+errorTemplateClass : 'validetta-inline',
+/*  bubblePosition: 'bottom',
   bubbleGapTop: 10,
-  bubbleGapLeft: -5
+  bubbleGapLeft: -5*/
   
 });
 // /Form inscription
@@ -177,15 +178,16 @@ var donnees = $("#form-connexion").serialize();
   
   }, // error
   
-  display : 'bubble',
+  display : 'inline',
   errorClass : 'validetta-error',
   /** Same for valid validation */
   validClass : 'validetta-valid', // Same for valid validation
   /* To enable real-time form control, set this option true. */
   realTime : true,
-  bubblePosition: 'bottom',
+errorTemplateClass : 'validetta-inline',
+/*  bubblePosition: 'bottom',
   bubbleGapTop: 10,
-  bubbleGapLeft: -5
+  bubbleGapLeft: -5*/
 });
 // /Form connexion
 
