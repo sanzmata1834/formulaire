@@ -24,9 +24,27 @@ hr {
 margin-top:35px;
 width:50px;
 border: solid black 2px;
+margin-bottom:35px;
 }
 
 .form-group {
 border : solid 1px black;
 border-radius: 30px;
+}
+
+.validetta-inline {
+margin:-10px 0 15px
+}
+
+img {
+	position:absolute;
+    opacity: 0;
+    top: 208px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+}
+
+.form-check .validetta-inline {
+margin-top:5px;	
 }

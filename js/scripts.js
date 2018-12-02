@@ -1,7 +1,7 @@
 $(function() {
 	
 	$.datepicker.regional['fr'] = {
-		closeText: 'Fermer',
+		closeText: 'X',
 		prevText: '&#x3c;Préc',
 		nextText: 'Suiv&#x3e;',
 		currentText: 'Aujourd\'hui',
@@ -24,7 +24,7 @@ $(function() {
 		showButtonPanel: true,
 		showAnim: 'fold',
 		showOn: "button",
-      	buttonImage: "../css/images/calendar.gif",
+      	buttonImage: "../css/images/calendar-alt-solid.svg",
       	buttonImageOnly: true,
       	buttonText: "Choisir une date"	
 		};
