@@ -1,11 +1,5 @@
 $(function() {
 	
-	/*$( "#datepicker" ).datepicker({
-		
-		dateFormat : 'dd/mm/yy'
-		
-	});*/
-	
 	$.datepicker.regional['fr'] = {
 		closeText: 'Fermer',
 		prevText: '&#x3c;Préc',
@@ -38,82 +32,13 @@ $(function() {
 	
 	$( "#datepicker" ).datepicker();
 	
-	/*SEPARATEUR*/
-	
-	var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    /*$( "#tags" ).autocomplete({
-      source: availableTags,
-		minLength:2
-    });*/
-	
-	$( "#tags" ).autocomplete({
-  source: function( request, response ) {
-          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-          response( $.grep( availableTags, function( item ){
-              return matcher.test( item );
-          }) );
-      },minLength:2
-});
-	
-/*SEPARATEUR*/
-	
+/*Code postal et ville*/	
 $.ajax({
 	url:'../json/cities.json',/*url:'./json/cities.json',*/
 	method: "GET",
 	dataType: "json",
 	success:function(monObjet) {
-		
-		/*console.log(monObjet[0].name);*/
-		/*console.log(monObjet[0].zip);*/
-		/*console.log(monObjet[2].name);*/
-		/*console.log(monObjet.length);*/
-			
-			/*var i = 0;
-			for(i=0; i<monObjet.length; i++)
-		{
-			console.log(monObjet[i].name);
-		}*/
-		
-		/*var i = 0;
-		var villes = [];
-		
-		for(i=0; i<monObjet.length; i++)
-			
-			{
-			villes.push(monObjet[i].name);	
-			}
-		console.log(villes);
-		
-		$("#ville").autocomplete({
-			source: villes,
-			minLength:1
-		});
-	}*/
  
-//	console.log(monObjet.length); 
 			var i = 0;
 			var villes = [];
 					
@@ -151,7 +76,9 @@ $.ajax({
 	} // success function
 	
 });
+/* /Code postal et ville*/
 	
+//Form inscription
 $('#form-inscription').validetta({
   onValid : function( event ) {
     event.preventDefault(); // Will prevent the submission of the form
@@ -193,19 +120,85 @@ var donnees = $("#form-inscription").serialize();
   
   
   }, // error
+
+  display : 'bubble',
+  errorClass : 'validetta-error',
+  /** Same for valid validation */
+  validClass : 'validetta-valid', // Same for valid validation
+  /* To enable real-time form control, set this option true. */
+  realTime : true,
+  bubblePosition: 'bottom',
+  bubbleGapTop: 10,
+  bubbleGapLeft: -5
   
+});
+// /Form inscription
+	
+//Form connexion
+$('#form-connexion').validetta({
+  onValid : function( event ) {
+    event.preventDefault(); // Will prevent the submission of the form
+   
+   //alert( 'Nice, Form is valid.' );
+ 
+ // ici faire la requête ajax
+	  
+var donnees = $("#form-connexion").serialize();	  
+ $.ajax({
+   	 // 1) on définit le fichier vers lequel on envoye la requête POST
+       url : 'php.php',
+	
+	// 2/ on spécifie la méthode  
+       type : 'POST', // Le type de la requête HTTP, ici  POST
+    
+	// 3) on définit les variables POST qui sont ennvoyées au fichier .php qui les récupère sous forme de $_POST["nom"] 
+	  data : donnees, // On fait passer nos variables au script coucou.php
+     
+	 // 4) format de retour du fichier php dans "data"
+	   dataType : 'html',
+	   
+	   // 5) fonction à effectuer en cas de succès
+	   success : function(data){ //  contient le HTML renvoyé
+        
+		$('#contenu').html(data);
+		
+	
+	   } // success
+   
+	// $('#form-connexion').hide();
+   
+   }); // $.ajax function
+
+ 
+ }, // valid
+  onError : function( event ){
+    //alert( 'Stop bro !! There are some errors.');
+  
+  
+  }, // error
   
   display : 'bubble',
   errorClass : 'validetta-error',
   /** Same for valid validation */
   validClass : 'validetta-valid', // Same for valid validation
-  bubblePosition: 'right', // Bubble position // right / bottom
-  bubbleGapLeft: 15, // Right gap of bubble (px unit)
-  bubbleGapTop: 0, // Top gap of bubble (px unit)
   /* To enable real-time form control, set this option true. */
-  realTime : true
-  
+  realTime : true,
+  bubblePosition: 'bottom',
+  bubbleGapTop: 10,
+  bubbleGapLeft: -5
 });
+// /Form connexion
 
-
+$('#connexion').click(function(){
+	$('#form-connexion').removeClass('hidden');
+	$('#connexion').hide();
+	$('#inscription').fadeIn("slow");
+	$('#form-inscription').addClass('hidden');
+})
+$('#inscription').click(function(){
+	$('#form-inscription').removeClass('hidden');
+	$('#inscription').hide();
+	$('#connexion').fadeIn("slow");
+	$('#form-connexion').addClass('hidden');
+})
 });

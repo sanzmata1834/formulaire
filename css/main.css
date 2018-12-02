@@ -6344,3 +6344,6 @@ a.text-dark:hover, a.text-dark:focus {
 
 .validetta-inline {
   color: #cd2e26; }
+
+.hidden {
+  display: none; }
