@@ -152,13 +152,40 @@ $.ajax({
 	
 });
 	
-$('#form').validetta({
+$('#form-inscription').validetta({
   onValid : function( event ) {
     event.preventDefault(); // Will prevent the submission of the form
    
    //alert( 'Nice, Form is valid.' );
  
  // ici faire la requête ajax
+	  
+var donnees = $("#form-inscription").serialize();	  
+ $.ajax({
+   	 // 1) on définit le fichier vers lequel on envoye la requête POST
+       url : 'php.php',
+	
+	// 2/ on spécifie la méthode  
+       type : 'POST', // Le type de la requête HTTP, ici  POST
+    
+	// 3) on définit les variables POST qui sont ennvoyées au fichier .php qui les récupère sous forme de $_POST["nom"] 
+	  data : donnees, // On fait passer nos variables au script coucou.php
+     
+	 // 4) format de retour du fichier php dans "data"
+	   dataType : 'html',
+	   
+	   // 5) fonction à effectuer en cas de succès
+	   success : function(data){ //  contient le HTML renvoyé
+        
+		$('#contenu').html(data);
+		
+	
+	   } // success
+   
+	// $('#form-inscription').hide();
+   
+   }); // $.ajax function
+
  
  }, // valid
   onError : function( event ){

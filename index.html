@@ -7,32 +7,33 @@
 <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-<form id="form">
-	
-<p>Date: <input type="text" id="datepicker"></p>
-	
-<hr>
-	
-<div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
+<div class="container">
+<div class="row">
+<form class="form-group col-6" id="form-inscription">
+<input class="form-control" id="nom" placeholder="Votre nom">
+<input class="form-control" id="prenom" placeholder="Votre prénom">
+<input class="form-control" id="datepicker" placeholder="Votre date de naissance">
+<input class="form-control" id="cp" placeholder="Code postal">
+<input class="form-control" id="ville" placeholder="Ville">	
+<input class="form-control" id="email" placeholder="Votre adresse e-mail" data-validetta="required,email">
+<input class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" data-validetta="required,minLength[3]">	
+<input class="form-control" id="mdp2" name="mdp2" placeholder="Confirmez mot de passe" data-validetta="required,equalTo[mdp]">
+<div class="form-check">
+<input class="form-check-input" type="checkbox" name="conditions" data-validetta="required">
+<a class="form-check-label" href="conditionsgenerales.html">J'ai lu et accepte les conditions générales</a><br>
 </div>
-	
-<hr>
-	
-<input id="cp" placeholder="Code postal">
-<input id="ville" placeholder="Ville">
-<hr>	
-<input id="email" placeholder="email" data-validetta="required,email">
-<br>
-<input id="mdp" name="mdp" placeholder="Mot de passe" data-validetta="required,minLength[3]">
-	
-<input id="mdp2" name="mdp2" placeholder="Confirmez mot de passe" data-validetta="required,equalTo[mdp]">
-<br>
-<button type="submit" id="submit">Envoyer</button>
+<button class="btn btn-primary" type="submit" id="submit">Envoyer</button>
 </form>
 	
+<form class="col-6" id="form-connexion">
+<input class="form-control" id="emailcon" placeholder="Votre adresse e-mail" data-validetta="required,email">
+<input class="form-control" id="mdpcon" name="mdpcon" placeholder="Votre mot de passe" data-validetta="required">
+<a class="form-check-label" href="mdpoublie.html">Mot de passe oublié?</a><br>
+<button class="btn btn-primary" type="submit" id="connexion">Envoyer</button>
+</form>
+</div>
+</div>
+
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
