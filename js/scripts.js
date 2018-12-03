@@ -39,40 +39,71 @@ $.ajax({
 	dataType: "json",
 	success:function(monObjet) {
  
-			var i = 0;
-			var villes = [];
+		var i = 0;
+        var cp = [];
+								  
+        for(i=0; i<monObjet.length; i++) {
 					
-			for(i=0; i<monObjet.length; i++) 
-	
-				{
-					
-					var obj = {};
+            var obj = {};
 				
-					obj["value"] = monObjet[i].zip;
-					obj["label"] = monObjet[i].zip+" "+monObjet[i].name;
-					obj["ville"] = monObjet[i].name;
-
-					villes.push(obj);
-	
-				} // for
-
-			console.log(villes);
-			  
-			$( "#cp" ).autocomplete({
-
-					source: function( request, response ) {
-						var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-						response( $.grep( villes, function( item ){
-							return matcher.test( item.label );
-						}) );
-					},
-					minLength: 1,
-					select:function(event, ui){		
-						$("#ville").val(ui.item.ville);
-			
-					}
-			});	
-		
+            obj["ville"] = monObjet[i].name;
+            obj["value"] = monObjet[i].zip;
+            obj["label"] = obj["value"]+" "+obj["ville"];
+				
+            cp.push(obj);
+								
+        }//for cp
+        var villes = [];
+								  
+        for(i=0; i<monObjet.length; i++) {
+					
+            var obj = {};
+				
+            obj["value"] = monObjet[i].name;
+            obj["cp"] = monObjet[i].zip;
+            obj["label"] = obj["value"]+" "+obj["cp"];
+				
+            villes.push(obj);
+								
+        }//for villes
+        
+        $( "#cp" ).autocomplete({
+            
+            source: function( request, response ) {
+                
+                var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+                response( $.grep( cp, function( item ){
+                    
+                    return matcher.test( item.label );
+                    
+                }) );
+            }, 
+            minLength: 1,
+            select: function(event, ui) {
+                
+                $("#ville").val(ui.item.ville);
+                
+            }
+        });//autocomplete cp
+        
+        $( "#ville" ).autocomplete({
+            
+            source: function( request, response ) {
+                
+                var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+                response( $.grep( villes, function( item ){
+                    
+                    return matcher.test( item.label );
+                    
+                }) );
+            }, 
+            minLength: 3,
+            select: function(event, ui) {
+                
+                $("#cp").val(ui.item.cp);
+                
+            }
+        });//autocomplete ville	
 			
 					  
 	} // success function

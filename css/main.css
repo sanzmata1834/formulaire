@@ -6345,6 +6345,10 @@ a.text-dark:hover, a.text-dark:focus {
 .validetta-inline {
   color: #cd2e26; }
 
+body {
+  background: #E0F1FF;
+  background-size: contain; }
+
 .hidden {
   display: none; }
 
@@ -6357,14 +6361,15 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 hr {
+  margin: auto;
   margin-top: 35px;
-  width: 50px;
-  border: solid black 2px;
-  margin-bottom: 35px; }
+  width: 75px;
+  margin-bottom: 35px;
+  border: solid #A0D4FF 2px; }
 
 .form-group {
-  border: solid 1px black;
-  border-radius: 30px; }
+  border-radius: 30px;
+  background-color: white; }
 
 .validetta-inline {
   margin: -10px 0 15px; }
@@ -6379,3 +6384,48 @@ img {
 
 .form-check .validetta-inline {
   margin-top: 5px; }
+
+.btn-secondary {
+  background: #A0D4FF;
+  border: none;
+  box-shadow: 1px 2px 2px 1px grey; }
+
+.btn-secondary:hover {
+  background: #FFF;
+  color: #A0D4FF;
+  box-shadow: 0px 0px 0px 0px grey; }
+
+.btn-secondary:active {
+  background: #FFF;
+  color: #A0D4FF; }
+
+.btn-primary {
+  background: #A0D4FF;
+  border: none; }
+
+.btn-primary:hover {
+  background: #85C7FE; }
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background: #85C7FE;
+  color: white;
+  border: none; }
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: none; }
+
+.btn-annuler {
+  background: #E0F1FF; }
+
+h1 {
+  color: #A0D4FF; }
+
+a {
+  color: #A0D4FF; }
+
+a:hover {
+  color: #85C7FE;
+  text-decoration: none; }
+
+.form-control::placeholder {
+  color: #A0D4FF; }
