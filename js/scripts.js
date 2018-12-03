@@ -123,7 +123,7 @@ $('#form-inscription').validetta({
 var donnees = $("#form-inscription").serialize();	  
  $.ajax({
    	 // 1) on définit le fichier vers lequel on envoye la requête POST
-       url : 'php.php',
+       url : 'inscription.php',
 	
 	// 2/ on spécifie la méthode  
        type : 'POST', // Le type de la requête HTTP, ici  POST
@@ -144,7 +144,7 @@ var donnees = $("#form-inscription").serialize();
    
    }); // $.ajax function
 	  
-$('#form-inscription').hide();
+$('.formulaire-comp').hide();
  
  }, // valid
   onError : function( event ){
@@ -179,7 +179,7 @@ $('#form-connexion').validetta({
 var donnees = $("#form-connexion").serialize();	  
  $.ajax({
    	 // 1) on définit le fichier vers lequel on envoye la requête POST
-       url : 'php.php',
+       url : 'connexion.php',
 	
 	// 2/ on spécifie la méthode  
        type : 'POST', // Le type de la requête HTTP, ici  POST
@@ -200,7 +200,7 @@ var donnees = $("#form-connexion").serialize();
    
    }); // $.ajax function
 
-$('#form-connexion').hide();
+$('.formulaire-comp').hide();
  
  }, // valid
   onError : function( event ){
