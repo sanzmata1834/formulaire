@@ -71,7 +71,9 @@ $.ajax({
 						$("#ville").val(ui.item.ville);
 			
 					}
-			});		  
+			});	
+		
+			
 					  
 	} // success function
 	
