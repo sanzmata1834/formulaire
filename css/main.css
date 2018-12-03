@@ -6399,6 +6399,11 @@ img {
   background: #FFF;
   color: #A0D4FF; }
 
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background: #85C7FE;
+  color: white;
+  border: none; }
+
 .btn-primary {
   background: #A0D4FF;
   border: none; }

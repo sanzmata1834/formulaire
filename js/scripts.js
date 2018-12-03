@@ -142,10 +142,9 @@ var donnees = $("#form-inscription").serialize();
 	
 	   } // success
    
-	// $('#form-inscription').hide();
-   
    }); // $.ajax function
-
+	  
+$('#form-inscription').hide();
  
  }, // valid
   onError : function( event ){
@@ -199,10 +198,9 @@ var donnees = $("#form-connexion").serialize();
 	
 	   } // success
    
-	// $('#form-connexion').hide();
-   
    }); // $.ajax function
 
+$('#form-connexion').hide();
  
  }, // valid
   onError : function( event ){
@@ -224,6 +222,7 @@ errorTemplateClass : 'validetta-inline',
 });
 // /Form connexion
 
+//Toggle connexien et inscription
 $('#connexion').click(function(){
 	$('#form-connexion').removeClass('hidden');
 	$('#connexion').hide();
@@ -236,4 +235,5 @@ $('#inscription').click(function(){
 	$('#connexion').fadeIn("slow");
 	$('#form-connexion').addClass('hidden');
 })
+//Toggle connexien et inscription
 });
